@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'reactstrap'
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button } from 'reactstrap';
 
 export default function Form (props) {
     const { 
