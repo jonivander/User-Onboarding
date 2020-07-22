@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './Form';
 import User from './User'
-import formSchema from '../validation/formSchema'
+import formSchema from './formSchema'
 import axios from 'axios';
 import './App.css';
 
@@ -30,15 +30,15 @@ function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState (initialDisabled)
 
-  const getUsers = () => {
-    axios.get('https://reqres.in/api/users')
-      .then(res => {
-        setUsers(res.data)
-      })
-      .catch(err => {
-        console.log(error)
-      })
-  }
+  // const getUsers = () => {
+  //   axios.get('https://reqres.in/api/users')
+  //     .then(res => {
+  //       setUsers(res.data)
+  //     })
+  //     .catch(err => {
+  //       debugger
+  //     })
+  // }
 
   const postNewUser = newUser => {
     axios.post('https://reqres.in/api/users', newUser)
@@ -47,7 +47,7 @@ function App() {
         setFormValues(initialFormValues)
       })
       .catch(err => {
-        console.log(error)
+        debugger
       })
   }
 
@@ -80,12 +80,12 @@ function App() {
     postNewUser(newUser)
   }
   
-  useEffect(() => {
-    getUsers()
-  }, [])
+  // useEffect(() => {
+  //   getUsers()
+  // }, [])
   
   useEffect(() => {
-    formSchema.isValis(formValues).then(valid => {
+    formSchema.isValid(formValues).then(valid => {
       setDisabled(!valid)
     })
   }, [formValues])

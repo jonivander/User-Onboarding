@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap'
 
 export default function Form (props) {
     const { 
@@ -30,7 +31,7 @@ export default function Form (props) {
             <div className='form-group submit'>
                 <h2>New User</h2>
 
-                <button disabled={disabled}>submit</button>
+                <Button color='success' disabled={disabled}>submit</Button>
 
                 <div className ='errors'>
                     <div>{errors.name}</div>
@@ -72,16 +73,17 @@ export default function Form (props) {
                 </label>
 
                 <label>Role: 
-                    <select 
+                    <select>
                         value={values.role}
                         onChange={onInputChange}
                         name='role'
-                    />
-                        <option value=''>~ Select a Role~</option>
+                    
+                        <option value=''>~ Select a Role ~</option>
                         <option value='student'>Student</option>
                         <option value='alumnus'>Alumnus</option>
                         <option value='tl'>Team Lead</option>
                         <option value='instructor'>Instructor</option>
+                    </select>
                 </label>
             </div>
 
